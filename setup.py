@@ -46,7 +46,7 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
 setup(name='docassemble.HelloCoder',
       version='0.0.1',
       description=('Demo docassemble execution order for those with coding experience'),
-      long_description='# docassemble.HelloCoder\n\nDemo docassemble execution order for those with coding experience\n\n## Author\n\nmb.restless.tech@gmail.com\n\n',
+      long_description='# docassemble.HelloCoder\r\n\r\nDemo docassemble execution order for those with coding experience\r\n\r\n## Author\r\n\r\nmb.restless.tech@gmail.com\r\n\r\n',
       long_description_content_type='text/markdown',
       author='plocket',
       author_email='52798256+plocket@users.noreply.github',
