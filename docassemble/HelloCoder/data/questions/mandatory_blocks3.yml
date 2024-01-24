@@ -1,0 +1,20 @@
+# Mandatory blocks
+# What will happen?
+---
+# Maybe skip
+mandatory: True
+question: |
+  Your information
+subquestion: |
+  You said you ${ 'do' if needs_stay else 'do not' } need this form.
+fields:
+  - Your name: renter_name
+  - Your address: renter_address
+---
+mandatory: True
+question: |
+  Is this form for you?
+fields:
+  - Are you being evicted by your landlord?: needs_stay
+    datatype: yesnoradio
+---

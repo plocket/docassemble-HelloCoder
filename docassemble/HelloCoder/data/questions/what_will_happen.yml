@@ -1,0 +1,16 @@
+# What will happen when I press 'run'?
+---
+id: needs
+question: |
+  Is this form for you?
+fields:
+  - Are you being evicted by your landlord?: needs_stay
+    datatype: yesnoradio
+---
+id: user
+question: |
+  Your information
+fields:
+  - Your name: renter_name
+  - Your address: renter_address
+---

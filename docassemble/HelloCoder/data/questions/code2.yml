@@ -1,0 +1,22 @@
+# code
+# What will happen?
+---
+mandatory: True
+code: |
+  needs_stay
+  renter_name
+  needs_stay
+  renter_address
+---
+question: |
+  Your information
+fields:
+  - Your name: renter_name
+  - Your address: renter_address
+---
+question: |
+  Is this form for you?
+fields:
+  - Are you being evicted by your landlord?: needs_stay
+    datatype: yesnoradio
+---

@@ -1,0 +1,25 @@
+# code
+# What will happen?
+---
+# top to bottom in the block, then bottom to top
+mandatory: True
+code: |
+  log( 'hello coder', 'console' )
+  needs_stay
+  log( 'goodbye coder', 'console' )
+---
+question: |
+  Your information
+fields:
+  - Your name: renter_name
+  - Your address: renter_address
+---
+question: |
+  Is this form for you?
+fields:
+  - Are you being evicted by your landlord?: needs_stay
+    datatype: yesnoradio
+---
+code: |
+  needs_stay = False
+---

@@ -1,0 +1,24 @@
+# idempotency
+# What will happen?
+---
+mandatory: True
+code: |
+  log( 'start', 'console' )
+  needs_stay
+  renter_name
+  needs_stay
+  renter_address
+  log( 'end', 'console' )
+---
+question: |
+  Your information
+fields:
+  - Your name: renter_name
+  - Your address: renter_address
+---
+question: |
+  Is this form for you?
+fields:
+  - Are you being evicted by your landlord?: needs_stay
+    datatype: yesnoradio
+---

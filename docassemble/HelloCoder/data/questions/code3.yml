@@ -1,0 +1,54 @@
+# code
+# What will happen?
+---
+mandatory: True
+code: |
+  needs_stay
+  renter_name
+  download
+---
+question: |
+  Your information
+fields:
+  - Your name: renter_name
+  - Your address: renter_address
+---
+question: |
+  What's your information, goofball?
+fields:
+  - Your most ridiculous name: renter_name
+  - Your most fantastical address: renter_address
+---
+question: |
+  Is this form for you?
+fields:
+  - Are you being evicted by your landlord?: needs_stay
+    datatype: yesnoradio
+---
+question: |
+  Download your form
+subquestion: |
+  Signatories:
+  
+  ${ renter_name } at %{ renter_address }
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# I've got multiple renters. How do I loop?

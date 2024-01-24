@@ -1,0 +1,17 @@
+# Mandatory blocks
+# What will happen?
+---
+mandatory: True
+question: |
+  Your information
+fields:
+  - Your name: renter_name
+  - Your address: renter_address
+---
+mandatory: True
+question: |
+  Is this form for you?
+fields:
+  - Are you being evicted by your landlord?: needs_stay
+    datatype: yesnoradio
+---

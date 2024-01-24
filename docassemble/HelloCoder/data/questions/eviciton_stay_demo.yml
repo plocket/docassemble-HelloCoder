@@ -1,0 +1,86 @@
+# Demo
+metadata:
+  title: Execution stay demo
+---
+objects:
+  - renters: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  hello
+  if renters.there_are_any:
+    renters.gather()
+    for renter in renters:
+      renter.signature
+    download
+  else:
+    kickout1
+---
+id: hello
+question: |
+  Hello coder!
+continue button field: hello
+---
+id: needs
+question: |
+  Is this form for you?
+subquestion: |
+  This form is for creating an eviction stay. If you're being evicted from your home, you can ask the court to stop the eviction.
+
+  No one else will be able to see your answers.
+fields:
+  - Are you being evicted by your landlord?: renters.there_are_any
+    datatype: yesnoradio
+---
+id: user
+question: |
+  Your information
+fields:
+  - Your name: renters[0].name.first
+  - Your address: renters[0].address.address
+---
+id: is_there_another
+question: |
+  Are other renters joining you?
+fields:
+  - Do other renters also need to sign this form?: renters.there_is_another
+    datatype: yesnoradio
+---
+id: other
+question: |
+  Information for the ${ ordinal(i) } renter
+subquestion: |
+  You've already told us about **${ comma_and_list( renters.complete_elements() ) }**.
+fields:
+  - The ${ ordinal(i) } renter's name: renters[i].name.first
+---
+id: signatures
+question: |
+  Sign your name, ${ renters[i].name.full() }
+signature: renters[i].signature
+---
+id: end
+event: download
+question: |
+  Download your form
+subquestion: |
+  You can give this form to the court to ask them to stop your landlord from evicting you.
+  
+  Next steps
+  
+  1. Contact the court at 555-5555 to check on their hours
+  2. Give them your form in person
+  3. You should get a response within a week
+attachment:
+  docx template file: faux_eviction_stay.docx
+  filename: ma_eviction_stay.docx
+---
+id: unhelpful
+event: kickout1
+question: |
+  Sorry, this form is not for you
+subquestion: |
+  This form is only for people being evicted by their landlord. You are not being evicted, so this form cannot help you.
+
+  Do you have another problem with the place where you live? Look for more housing forms at [https://courtformsonline.org/](https://courtformsonline.org/).
+---

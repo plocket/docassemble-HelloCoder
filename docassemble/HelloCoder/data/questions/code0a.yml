@@ -1,0 +1,21 @@
+# code
+# What will happen?
+# There are more ways to control order and one of them is code
+---
+mandatory: True
+code: |
+  # foo = 5
+  needs_stay
+---
+question: |
+  Your information
+fields:
+  - Your name: renter_name
+  - Your address: renter_address
+---
+question: |
+  Is this form for you?
+fields:
+  - Are you being evicted by your landlord?: needs_stay
+    datatype: yesnoradio
+---
