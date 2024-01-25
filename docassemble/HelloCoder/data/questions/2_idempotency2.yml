@@ -1,13 +1,18 @@
-# code
+# idempotency
 # What will happen?
 ---
 mandatory: True
 code: |
+  accumulator += 1
+  log( accumulator, 'console' )
   needs_stay
   renter_name
   needs_stay
   renter_address
-  download
+  log( 'end', 'console' )
+---
+code: |
+  accumulator = 1
 ---
 question: |
   Your information
@@ -20,12 +25,4 @@ question: |
 fields:
   - Are you being evicted by your landlord?: needs_stay
     datatype: yesnoradio
----
-event: download
-question: |
-  Download your form
-subquestion: |
-  Signatories:
-  
-  ${ renter_name } at %{ renter_address }
 ---

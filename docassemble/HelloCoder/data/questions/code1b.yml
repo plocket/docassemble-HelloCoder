@@ -5,6 +5,7 @@ mandatory: True
 code: |
   renter_name
   needs_stay
+  download
 ---
 question: |
   Your information
@@ -17,4 +18,12 @@ question: |
 fields:
   - Are you being evicted by your landlord?: needs_stay
     datatype: yesnoradio
+---
+event: download
+question: |
+  Download your form
+subquestion: |
+  Signatories:
+  
+  ${ renter_name } at %{ renter_address }
 ---

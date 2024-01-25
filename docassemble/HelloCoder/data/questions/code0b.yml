@@ -3,9 +3,8 @@
 ---
 mandatory: True
 code: |
-  log( 'hello coder', 'console' )
   needs_stay
-  log( 'goodbye coder', 'console' )
+  download
 ---
 code: |
   needs_stay = False
@@ -21,4 +20,8 @@ question: |
 fields:
   - Are you being evicted by your landlord?: needs_stay
     datatype: yesnoradio
+---
+event: download
+question: |
+  Download your form
 ---

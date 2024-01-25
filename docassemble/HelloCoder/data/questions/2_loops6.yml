@@ -1,0 +1,44 @@
+# loops
+# What will happen?
+---
+objects:
+  - renters: DAList.using(object_type=Individual) #, there_are_any=True)
+---
+mandatory: True
+code: |
+  renters.gather()
+  download
+---
+question: |
+  Other renter's information
+fields:
+  - Their name: renters[i].name.first
+---
+question: |
+  Your information
+fields:
+  - Your name: renters[0].name.first
+  - Your address: renters[0].address.address
+---
+question: |
+  Are other renters joining you?
+fields:
+  - Do other renters also need to sign this form?: renters.there_is_another
+    datatype: yesnoradio
+---
+question: |
+  Is this form for you?
+fields:
+  - Are you being evicted by your landlord?: renters.there_are_any
+    datatype: yesnoradio
+---
+event: download
+question: |
+  Download your form
+subquestion: |
+  Signatories:
+  
+  % for renter in renters:
+  * ${ renter.name } at %{ renter.address }
+  % endfor
+---

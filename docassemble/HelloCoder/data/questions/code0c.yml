@@ -4,9 +4,10 @@
 # top to bottom in the block, then bottom to top
 mandatory: True
 code: |
-  log( 'hello coder', 'console' )
+  #3? log( 'hello coder', 'console' )
   needs_stay
-  log( 'goodbye coder', 'console' )
+  download
+  #3? log( 'goodbye coder', 'console' )
 ---
 question: |
   Your information
@@ -22,4 +23,8 @@ fields:
 ---
 code: |
   needs_stay = False
+---
+event: download
+question: |
+  Download your form
 ---

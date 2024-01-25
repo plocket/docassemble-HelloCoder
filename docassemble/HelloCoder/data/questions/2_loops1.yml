@@ -1,0 +1,40 @@
+# loops
+# What will happen?
+---
+objects:
+  - renters: DAList.using(object_type=Individual)
+---
+mandatory: True
+code: |
+  needs_stay
+  renters[0].name.first
+  renters[1].name.first
+  download
+---
+question: |
+  Your information
+fields:
+  - Your name: renters[0].name.first
+  - Your address: renters[0].address.address
+---
+question: |
+  Other renter information
+fields:
+  - Their name: renters[1].name.first
+  - Their address: renters[1].address.address
+---
+question: |
+  Is this form for you?
+fields:
+  - Are you being evicted by your landlord?: needs_stay
+    datatype: yesnoradio
+---
+event: download
+question: |
+  Download your form
+subquestion: |
+  Signatories:
+  
+  * ${ renters[0].name } at %{ renters[0].address }
+  * ${ renters[1].name } at %{ renters[1].address }
+---

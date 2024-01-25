@@ -25,6 +25,7 @@ fields:
   - Are you being evicted by your landlord?: needs_stay
     datatype: yesnoradio
 ---
+event: download
 question: |
   Download your form
 subquestion: |

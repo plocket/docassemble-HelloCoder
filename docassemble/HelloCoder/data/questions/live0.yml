@@ -1,0 +1,43 @@
+# What will happen when I press 'run'?
+---
+objects:
+  - renters: DAList.using(object_type=Individual, there_are_any=True) # can be more elegant
+---
+mandatory: True
+code: |
+  needs_stay
+  renters.gather()
+  download
+---
+question: |
+  Your information
+fields:
+  - Your name: renters[0].name.first
+  - Your address: renters[0].address.address
+---
+question: |
+  Renter's information
+fields:
+  - Name: renters[i].name.first
+---
+id: more
+question: |
+  Are other renters joining you?
+fields:
+  - Do other renters also need to sign this form?: renters.there_is_another
+    datatype: yesnoradio
+---
+question: |
+  Is this form for you?
+subquestion: |
+  This form is for creating an eviction stay. If you're being evicted from your home, you can ask the court to stop the eviction.
+
+  No one else will be able to see your answers.
+fields:
+  - Are you being evicted by your landlord?: needs_stay
+    datatype: yesnoradio
+---
+event: download
+question: |
+  Download your form
+---

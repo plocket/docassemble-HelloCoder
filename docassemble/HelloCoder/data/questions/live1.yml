@@ -1,5 +1,4 @@
-# code
-# What will happen?
+# What will happen when I press 'run'?
 ---
 mandatory: True
 code: |
@@ -21,11 +20,15 @@ fields:
   - Are you being evicted by your landlord?: needs_stay
     datatype: yesnoradio
 ---
+#code: |
+#  needs_stay = False
+#  renter_address = 'Narnia'
+---
 event: download
 question: |
   Download your form
 subquestion: |
   Signatories:
   
-  ${ renter_name } at %{ renter_address }
+  ${ renter_name } at ${ renter_address }
 ---
